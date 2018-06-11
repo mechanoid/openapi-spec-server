@@ -9,4 +9,4 @@ mixin nav-element(el)
       = el.label
       +nav(el.children)
     else
-      a(href=el.link)= el.label
+      a(href=`./?spec-url=${el.link}`)= el.label
