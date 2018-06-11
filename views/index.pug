@@ -14,21 +14,18 @@ html(lang='en')
       aside.column.column-25.navigation
         nav
           +nav(config)
-          //- ul
-          //-   li 
-          //-     a(href="./?spec-url=http://localhost:5001/specs/test-spec.yaml") Test Spec
-          //-   li
-          //-     a(href="./?spec-url=http://localhost:5001/specs/test-spec2.yaml") Test Spec 2
-              
+          
         form(action="/" method="GET")
           label(for="url")
             | Spec URL
             input(type="text" name="spec-url" placeholder="url" value=specUrl)
             button(type="submit") Go
       
-      if specUrl
+            
+      - const currentSpecUrl = specUrl || (config[0] && config[0].link)
+      if currentSpecUrl
         section.content.column.column-75
           full-height-container
             swagger-frame-cleaner
-              iframe(src=`./swagger-ui/?url=${specUrl}` width="100%" height="800px")
+              iframe(src=`./swagger-ui/?url=${currentSpecUrl}` width="100%" height="800px")
         
