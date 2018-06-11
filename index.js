@@ -20,7 +20,11 @@ module.exports = config => {
   }
 
   app.use('/assets', express.static(path.resolve(__dirname, './assets')))
-  app.use('/vendor', express.static(path.resolve(__dirname, './node_modules')))
+  app.use(
+    '/vendor',
+    // dirty trick, but works across different installs
+    express.static(path.resolve(path.dirname(require.resolve('document-register-element')), '..', '..'))
+  )
   app.use('/swagger-ui', express.static(swaggerUiAssetPath))
 
   app.get('/', (req, res) => {
