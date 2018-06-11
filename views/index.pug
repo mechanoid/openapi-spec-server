@@ -1,0 +1,34 @@
+doctype
+include helper/navigation-helper.pug
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Swagger Spec Server
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css")
+    link(rel="stylesheet" href="/assets/css/main.css")
+    script(src="/vendor/document-register-element/build/document-register-element.js" defer)
+    script(src="/assets/js/components.js" defer)
+  body
+    main.row
+    
+      aside.column.column-25.navigation
+        nav
+          +nav(config)
+          //- ul
+          //-   li 
+          //-     a(href="./?spec-url=http://localhost:5001/specs/test-spec.yaml") Test Spec
+          //-   li
+          //-     a(href="./?spec-url=http://localhost:5001/specs/test-spec2.yaml") Test Spec 2
+              
+        form(action="/" method="GET")
+          label(for="url")
+            | Spec URL
+            input(type="text" name="spec-url" placeholder="url" value=specUrl)
+            button(type="submit") Go
+      
+      if specUrl
+        section.content.column.column-75
+          full-height-container
+            swagger-frame-cleaner
+              iframe(src=`./swagger-ui/?url=${specUrl}` width="100%" height="800px")
+        

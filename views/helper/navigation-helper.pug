@@ -1,0 +1,12 @@
+mixin nav(config)
+  ul
+    each el in config
+      +nav-element(el)
+        
+mixin nav-element(el)
+  li 
+    if el.children
+      = el.label
+      +nav(el.children)
+    else
+      a(href=el.link)= el.label
