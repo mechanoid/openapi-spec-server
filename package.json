@@ -14,15 +14,15 @@
   "dependencies": {
     "document-register-element": "^1.9.0",
     "dotenv": "^5.0.1",
-    "eslint": "^4.19.1",
     "express": "^4.16.3",
     "helmet": "^3.12.1",
     "morgan": "^1.9.0",
     "pug": "^2.0.3",
-    "standard": "^11.0.1",
     "swagger-ui-dist": "^3.16.0"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "standard": "^11.0.1",
+    "eslint": "^4.19.1"
   }
 }
