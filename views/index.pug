@@ -5,9 +5,9 @@ html(lang='en')
     meta(charset='utf-8')
     title Swagger Spec Server
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css")
-    link(rel="stylesheet" href="/assets/css/main.css")
-    script(src="/vendor/document-register-element/build/document-register-element.js" defer)
-    script(src="/assets/js/components.js" defer)
+    link(rel="stylesheet" href="./assets/css/main.css")
+    script(src="./vendor/document-register-element/build/document-register-element.js" defer)
+    script(src="./assets/js/components.js" defer)
   body
     main.row
     
@@ -15,7 +15,7 @@ html(lang='en')
         nav
           +nav(config)
           
-        form(action="/" method="GET")
+        form(action="./" method="GET")
           label(for="url")
             | Spec URL
             input(type="text" name="spec-url" placeholder="url" value=specUrl)
