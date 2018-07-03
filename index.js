@@ -4,6 +4,9 @@ const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
+
+const util = require('./lib/util.js')
+
 const swaggerUiAssetPath = require('swagger-ui-dist').getAbsoluteFSPath()
 
 module.exports = config => {
@@ -15,6 +18,13 @@ module.exports = config => {
   app.use(morgan('combined'))
 
   app.use('/assets', express.static(path.resolve(__dirname, './assets')))
+
+  const specPath = path.join(process.cwd(), 'specs')
+
+  if (util.pathExistsAndIsDir(specPath)) {
+    app.use('/specs', express.static(specPath))
+  }
+
   app.use(
     '/vendor',
     // dirty trick, but works across different installs
