@@ -46,3 +46,26 @@ class SwaggerFrameCleaner extends HTMLElement {
 }
 
 customElements.define('swagger-frame-cleaner', SwaggerFrameCleaner)
+
+class NavLink extends HTMLElement {
+  constructor (self) {
+    self = super(self)
+    return self
+  }
+
+  connectedCallback () {
+    this.link = this.querySelector('a')
+    this.parentLink = this.parentNode
+
+    this.link.addEventListener('click', e => {
+      e.preventDefault()
+      if (this.parentLink.classList.contains('open')) {
+        this.parentLink.classList.remove('open')
+      } else {
+        this.parentLink.classList.add('open')
+      }
+    })
+  }
+}
+
+customElements.define('nav-link', NavLink)

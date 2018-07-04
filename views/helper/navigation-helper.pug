@@ -1,12 +1,14 @@
-mixin nav(config)
+mixin nav(config, level = 0)
   ul
     each el in config
-      +nav-element(el)
+      +nav-element(el, level)
         
-mixin nav-element(el)
+mixin nav-element(el, level)
   li 
     if el.children
-      = el.label
-      +nav(el.children)
+      nav-link
+        a(href="#")
+          #{`h${level+4}`}= el.label
+        +nav(el.children, level + 1)
     else
-      a(href=`./?spec-url=${el.link}`)= el.label
+      a(href=`./?spec-url=${el.link}` class="spec-link")= el.label
