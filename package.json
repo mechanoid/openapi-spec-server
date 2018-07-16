@@ -17,8 +17,10 @@
     "express": "^4.16.3",
     "helmet": "^3.12.1",
     "morgan": "^1.9.0",
-    "pug": "^2.0.3",
-    "swagger-ui-dist": "^3.17.4"
+    "pug": "^2.0.3"
+  },
+  "peerDependencies": {
+    "swagger-ui-dist": ">= 3.17.4"
   },
   "devDependencies": {
     "nodemon": "^1.17.5",
