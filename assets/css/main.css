@@ -72,3 +72,7 @@ iframe {
     max-width: 85%;
   }
 }
+
+nav-link > a {
+  cursor: pointer;
+}

@@ -4,6 +4,7 @@ const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
+const slug = require('slug')
 
 const util = require('./lib/util.js')
 
@@ -34,7 +35,7 @@ module.exports = config => {
 
   app.get('/', (req, res) => {
     const specUrl = req.query['spec-url']
-    res.render('index', { config, specUrl })
+    res.render('index', { slug, config, specUrl })
   })
 
   return app

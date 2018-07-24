@@ -7,7 +7,7 @@ mixin nav-element(el, level)
   li 
     if el.children
       nav-link
-        a(href="#")
+        a(href=`#${slug(el.label)}-${level}`)
           #{`h${level+4}`}= el.label
         +nav(el.children, level + 1)
     else
